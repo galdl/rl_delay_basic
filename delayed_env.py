@@ -6,7 +6,7 @@ import numpy as np
 from dqn_agents import reshape_state
 from numpy import sin, cos, pi
 
-CARTPOLE_TRAINED_NON_DELAYED_AGENT_PATH = './saved_agents/i06rfoxy_cartpole_ddqn_no_delay.h5'
+CARTPOLE_TRAINED_NON_DELAYED_AGENT_PATH = 'pretrained_agents/i06rfoxy_cartpole_ddqn_no_delay.h5'
 
 class DelayedEnv:
     def __init__(self, orig_env, delay_value):
@@ -25,7 +25,7 @@ class DelayedEnv:
                                                   delay_value=0, epsilon=0, is_atari_env=self.is_atari_env)
         self.pretrained_agent_loaded = False
 
-        if 'CartPole' in self.env_name:
+        if 'CartPole' in self.env_name: # for other envs this is not necessary
             self.trained_non_delayed_agent.load(CARTPOLE_TRAINED_NON_DELAYED_AGENT_PATH)
             self.pretrained_agent_loaded = True
 

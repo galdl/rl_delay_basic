@@ -18,7 +18,7 @@ import socket
 
 AVERAGE_OVER_LAST_EP = 0.1
 # EPISODES = 3500
-SAVE_PATH = 'saved_agents'
+SAVE_PATH = 'pretrained_agents'
 EP_LEN_LIMIT = int(1e4)
 EVAL_FREQ = 5
 
