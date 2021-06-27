@@ -1,5 +1,5 @@
 numpy==1.18.5
-wandb==0.9.3
+wandb==0.10.32
 tensorflow==2.2.0
 keras==2.4.3
 gym==0.18.3
