@@ -1,4 +1,6 @@
-numpy
-tensorflow-gpu
-keras
-wandb
+numpy==1.18.5
+wandb==0.9.3
+tensorflow==2.2.0
+keras==2.4.3
+gym==0.18.3
+tqdm==4.61.1
