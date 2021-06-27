@@ -3,6 +3,8 @@
 import gym
 from delayed_env import DelayedEnv
 import wandb
+import warnings
+
 
 
 def init_main():
@@ -30,7 +32,12 @@ def init_main():
     wandb.init(config=hyperparameter_defaults)
     config = wandb.config
     if 'CartPole' in config.env_name or 'Acrobot' in config.env_name:
-        orig_env = gym.make(config.env_name, physical_noise_std_ratio=config.physical_noise_std_ratio)
+        try:
+            orig_env = gym.make(config.env_name, physical_noise_std_ratio=config.physical_noise_std_ratio)
+        except TypeError as e:
+            warnings.warn('{} gym env has not been modified as needed to support added noise. See README.md for '
+                          'instructions.\nRunning original noiseless version instead.'.format(config.env_name))
+            orig_env = gym.make(config.env_name)
     else:
         orig_env = gym.make(config.env_name)
     # orig_env = DiscretizeActions(orig_env) # for mujoco envs
