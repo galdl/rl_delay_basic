@@ -11,6 +11,11 @@ The agent here supports the Cartpole and Acrobot environments by OpenAI. The Ata
   4a. Find location in site packages. E.g., "/home/username/anaconda3/envs/rl_delay_env/lib/python3.7/site-packages/gym/envs/classic_control/cartpole.py"\
   4b. Overwrite the above file with "rl_delay_basic/gym_modifications/cartpole.py". Repeat the same process for "rl_delay_basic/gym_modifications/acrobot.py".
   
+**Hyperparameters:**
+The parameters used for the experiments in the paper are the default ones appearing in init_main.py. They are the same for all types of agents (delayed, augmented, oblivious), both noisy and non-noisy, and all delay values. The only exception is that for Cartpole epsilon_decay=0.999, while for Acrobot epsilon_decay=0.9999.
+
+**Wandb sweep:**
+Using wandb, you can easily run multiple experiments for different agents, delay values, hyperparameters, etc. An example sweep file is included the in project: example_sweep.yml. A sweep can be created via "wandb sweep example_sweep.yml", and multiple workers can be started with "wandb agent your-sweep-id". For more details see https://docs.wandb.ai/guides/sweeps/quickstart. 
   
 Feel free to leave questions and raise issues. 
 
