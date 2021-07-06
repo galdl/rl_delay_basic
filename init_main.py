@@ -26,7 +26,7 @@ def init_main():
         target_network_update_freq=300,
         use_learned_forward_model=True,
         agent_type='delayed', #'delayed', 'augmented', 'oblivious'
-        total_steps=3000,
+        # total_steps=3000, replaced with a delay-dependent function
     )
     # Pass your defaults to wandb.init
     wandb.init(config=hyperparameter_defaults)

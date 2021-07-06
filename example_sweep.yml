@@ -1,0 +1,33 @@
+program: ddqn_main.py
+method: grid
+metric:
+  goal: maximize
+  name: final_score
+parameters:
+  env_name:
+    values: ['CartPole-v1'] #'CartPole-v1', 'Acrobot-v1'
+  agent_type:
+    values: ['delayed']
+  use_learned_forward_model:
+    values: [False, True]
+  delay_value:
+    values: [0, 5, 15, 25]
+  physical_noise_std_ratio:
+    values: [0.1]
+  seed:
+    values: [1, 2, 3]
+  use_reward_shaping:
+    values: [True]
+  epsilon_decay:
+    values: [0.999] # 0.9999 for acrobot
+  epsilon_min:
+    values: [0.001]
+  learning_rate:
+    values: [0.005]
+  double_q:
+    values: [True]
+  target_network_update_freq:
+    values: [300]
+  total_steps:
+    values: [250000]
+
