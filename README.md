@@ -6,7 +6,7 @@ This repository contains the implementation of the delayed-RL agent from the pap
 The agent here supports the Cartpole and Acrobot environments by OpenAI. The Atari-supported agent will be released in a separate repository.
 
 **Installation instructions:**
-1. Tested with python3.7. Conda virtual env is encouraged, users can simply run `conda env create -f environment. yml` and then a virtual env called `tf_14` will be installed. Other versions of python and/or environments should also be possible.
+1. Tested with python3.7. Conda virtual env is encouraged, users can simply run `conda env create -f environment.yml` and then a virtual env called `tf_14` will be installed. Other versions of python and/or environments should also be possible.
 2. Clone project and cd to project dir.
 3. Run "pip install -r requirements.py" (other versions of the packages in requirements.py should also be fine).
 4. To enable support of the noisy Cartpole and Acrobot experiments, replace the original gym cartpole.py and acrobot.py:\
