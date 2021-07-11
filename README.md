@@ -6,21 +6,23 @@ This repository contains the implementation of the delayed-RL agent from the pap
 The agent here supports the Cartpole and Acrobot environments by OpenAI. The Atari-supported agent will be released in a separate repository.
 
 **Installation instructions:**
-1. Tested with python3.7. Conda virtual env is encouraged, users can simply run `conda env create -f environment. yml` and then a virtual env called `tf_14` will be installed. Other versions of python and/or environments should also be possible.
+1. Tested with python3.7. Conda virtual env is encouraged. Other versions of python and/or environments should also be possible.
 2. Clone project and cd to project dir.
-3. Run "pip install -r requirements.py" (other versions of the packages in requirements.py should also be fine).
-4. To enable support of the noisy Cartpole and Acrobot experiments, replace the original gym cartpole.py and acrobot.py:\
-  4a. Find location in site packages. E.g., "/home/username/anaconda3/envs/rl_delay_env/lib/python3.7/site-packages/gym/envs/classic_control/cartpole.py"\
-  4b. Overwrite the above file with "rl_delay_basic/gym_modifications/cartpole.py". Repeat the same process for "rl_delay_basic/gym_modifications/acrobot.py".
-  
-  Or alternatively you can following the instructions below to install the gym.
-  ```bash
-  cd third_party
-  git submodule sync && git submodule update --init --recursive
-  cd gym
-  git apply ../gym.patch
-  pip install -e .
-  ```
+3. Create virtual env:\
+   Option 1 -- Tensorflow 2.2: Run `pip install -r requirements.py` (other versions of the packages in requirements.py should also be fine).\
+   Option 2 -- Tensorflow 1.14: Run `conda env create -f environment. yml` to directly create a virtual env called `tf_14`.
+4. To enable support of the noisy Cartpole and Acrobot experiments, modify the original gym cartpole.py and acrobot.py:\
+   Option 1 -- via pip install:
+      ```bash
+      cd third_party
+      git submodule sync && git submodule update --init --recursive
+      cd gym
+      git apply ../gym.patch
+      pip install -e .
+      ```
+   Option 2 -- manually:\
+      4a. Find location in site packages. E.g., "/home/username/anaconda3/envs/rl_delay_env/lib/python3.7/site-packages/gym/envs/classic_control/cartpole.py"\
+      4b. Overwrite the above file with "rl_delay_basic/gym_modifications/cartpole.py". Repeat the same process for "rl_delay_basic/gym_modifications/acrobot.py".  
 
 **Hyperparameters:**
 The parameters used for the experiments in the paper are the default ones appearing in init_main.py. They are the same for all types of agents (delayed, augmented, oblivious), both noisy and non-noisy, and all delay values. The only exception is that for Cartpole epsilon_decay=0.999, while for Acrobot epsilon_decay=0.9999.

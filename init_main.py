@@ -4,14 +4,16 @@ from delayed_env import DelayedEnv
 import wandb
 import warnings
 
-from keras import backend as K
+# from keras import backend as K
+from tensorflow.python.keras import backend as K
+
 import tensorflow as tf
 
 
-config = tf.ConfigProto(allow_soft_placement=True)
+config = tf.compat.v1.ConfigProto(allow_soft_placement=True)
 config.gpu_options.per_process_gpu_memory_fraction = 0.9
 config.gpu_options.allow_growth = True
-sess = tf.Session(config=config)
+sess = tf.compat.v1.Session(config=config)
 K.set_session(sess)
 
 
