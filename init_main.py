@@ -1,10 +1,18 @@
 # SPDX-License-Identifier: Apache-2.0
-
 import gym
 from delayed_env import DelayedEnv
 import wandb
 import warnings
 
+from keras import backend as K
+import tensorflow as tf
+
+
+config = tf.ConfigProto(allow_soft_placement=True)
+config.gpu_options.per_process_gpu_memory_fraction = 0.9
+config.gpu_options.allow_growth = True
+sess = tf.Session(config=config)
+K.set_session(sess)
 
 
 def init_main():
