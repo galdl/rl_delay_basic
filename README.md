@@ -3,7 +3,7 @@ This repository contains the implementation of the delayed-RL agent from the pap
 
 <img src="https://github.com/galdl/rl_delay_basic/blob/master/delayed_q_diagram.png" width="600" height="330">
 
-The agent here supports the Cartpole and Acrobot environments by OpenAI. The Atari-supported agent will be released in a separate repository.
+The agent here supports the Cartpole and Acrobot environments by OpenAI. The Atari-supported agent can be found [here](https://github.com/galdl/rl_delay_atari).
 
 **Installation instructions:**
 1. Tested with python3.7. Conda virtual env is encouraged. Other versions of python and/or environments should also be possible.
